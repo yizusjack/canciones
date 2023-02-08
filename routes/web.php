@@ -24,5 +24,6 @@ Route::get('/canciones', function () {
     $canciones[2]=['nombre'=>'Pop!', 'artista'=>'Adanna Duru'];
     
     //dd($canciones);
-    return view('canciones')->with(['canciones' => $canciones]);
+    //return view('canciones')->with(['canciones' => $canciones]);
+    return view('canciones', compact('canciones'));
 });
