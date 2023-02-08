@@ -27,3 +27,14 @@ Route::get('/canciones', function () {
     //return view('canciones')->with(['canciones' => $canciones]);
     return view('canciones', compact('canciones'));
 });
+
+Route::get('/canciones/{id}', function ($id) {
+    $canciones=[];
+    $canciones[0]=['nombre'=>'Astronomy', 'artista'=>'Conan Gray'];
+    $canciones[1]=['nombre'=>'Style', 'artista'=>'Taylor Swift'];
+    $canciones[2]=['nombre'=>'Pop!', 'artista'=>'Adanna Duru'];
+
+    $cancion=$canciones[$id];
+
+    return view('detalleCancion', compact('cancion'));
+});
