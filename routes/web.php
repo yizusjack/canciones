@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/canciones', function () {
+    $canciones=[];
+    $canciones[0]=['nombre'=>'Astronomy', 'artista'=>'Conan Gray'];
+    $canciones[1]=['nombre'=>'Style', 'artista'=>'Taylor Swift'];
+    $canciones[2]=['nombre'=>'Pop!', 'artista'=>'Adanna Duru'];
+    
+    //dd($canciones);
+    return view('canciones')->with(['canciones' => $canciones]);
+});
