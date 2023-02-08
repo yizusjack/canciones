@@ -5,11 +5,16 @@
 			<title>canciones</title>
 		</head>
 		<body>
-            <h1>Canciones</h1>
-            <ul>
-                @foreach($canciones as $cancion)
-                    <li>{{$cancion['nombre']}} - {{$cancion['artista']}}</li>
-                @endforeach
-            </ul>
+            @if(is_null($cancion))
+                <h1>Canciones</h1>
+                <ul>
+                    @foreach($canciones as $cancion)
+                        <li>{{$cancion['nombre']}} - {{$cancion['artista']}}</li>
+                    @endforeach
+                </ul>
+            @else
+                <h1>{{$cancion['nombre']}}</h1>
+                <h2>{{$cancion['artista']}}</h2>
+            @endif
 		</body>
 </html>

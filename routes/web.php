@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/canciones', function () {
+/*Route::get('/canciones', function () {
     $canciones=[];
     $canciones[0]=['nombre'=>'Astronomy', 'artista'=>'Conan Gray'];
     $canciones[1]=['nombre'=>'Style', 'artista'=>'Taylor Swift'];
@@ -37,4 +37,19 @@ Route::get('/canciones/{id}', function ($id) {
     $cancion=$canciones[$id];
 
     return view('detalleCancion', compact('cancion'));
+});*/
+
+Route::get('/canciones/{id?}', function ($id = null) {
+    $canciones=[];
+    $canciones[0]=['nombre'=>'Astronomy', 'artista'=>'Conan Gray'];
+    $canciones[1]=['nombre'=>'Style', 'artista'=>'Taylor Swift'];
+    $canciones[2]=['nombre'=>'Pop!', 'artista'=>'Adanna Duru'];
+    
+    if(!is_null($id)){
+        $cancion=$canciones[$id];
+    } else{
+        $cancion = null;
+    }
+
+    return view('canciones', compact('canciones', 'cancion'));
 });
